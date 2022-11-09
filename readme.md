@@ -1,4 +1,4 @@
-# sSbre AluraTube 
+# Sobre AluraTube 
 
 Projeto em desenvolvimento do Imersão React, desenvolvido pela Alura.
 
