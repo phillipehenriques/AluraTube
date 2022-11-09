@@ -79,9 +79,9 @@ function Timeline(propriedades) {
                             {playlists.map(() => {
                                 return (
                                     <a href={playlists.url}>
-                                        <img src={playlists.thumb} />
+                                        <img src={playlists.thumb} />{/* thumb do video */}
                                         <span>
-                                            {playlists.title}
+                                            {playlists.title} {/* nome do video */}
                                         </span>
                                     </a>
                                 )
