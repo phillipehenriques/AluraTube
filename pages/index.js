@@ -1,31 +1,36 @@
 import config from "../config.json";
 import styled from "styled-components";
+import { CSSReset } from "../src/components/CSSReset";
+import Menu from "../src/components/Menu.js";
 
 function HomePage() {
     const mensagem = "Deu certo essa desgraça?";
-    const estilosDaHomePage = { backgroundColor: "orange" };
+    const estilosDaHomePage = {        backgroundColor: "none", width: "100%"};
 
     return (
+        <>
+        <CSSReset />
         <div style={estilosDaHomePage}>
             <Menu />
             <Header />
             <Timeline playlists={config.playlists}>
                 Conteúdo
             </Timeline>
-        </div>)
-
+        </div>
+        </>
+    );
 }
 
 export default HomePage;
 
 
-function Menu() {
-    return (
-        <div>
-            Menu
-        </div>
-    )
-};
+// function Menu() {
+//     return (
+//         <div>
+//             Menu
+//         </div>
+//     )
+// };
 
 const StyledHeader = styled.div`
     img {
@@ -48,7 +53,7 @@ function Header() {
         <StyledHeader>
             {/*<img src=""/>*/}
 
-            <div className="user-info">
+            <div className="userInfo">
                 <img src={`https://github.com/${config.github}.png`} />
                 <div>
                     <h2>{config.name}</h2>
@@ -68,7 +73,6 @@ function Timeline(propriedades) {
 
                 return (
                     <section>
-                        Olar
                         <h2>{playListName}</h2>
                         <div>
                             {playlists.map(() => {
