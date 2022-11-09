@@ -1,4 +1,4 @@
-[ola](/github/followers/phillipehenriques.md)
+(/github/followers/phillipehenriques)
 
 # sobre AluraTube 
 
