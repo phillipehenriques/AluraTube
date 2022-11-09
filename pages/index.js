@@ -2,9 +2,10 @@ import config from "../config.json";
 import styled from "styled-components";
 import { CSSReset } from "../src/components/CSSReset";
 import Menu from "../src/components/Menu.js";
+import { StyledTimeline } from "../src/components/Timeline";
 
 function HomePage() {
-    const mensagem = "Deu certo essa desgraça?";
+    const mensagem = "Deu certo?";
     const estilosDaHomePage = {        backgroundColor: "none", width: "100%"};
 
     return (
@@ -13,9 +14,7 @@ function HomePage() {
         <div style={estilosDaHomePage}>
             <Menu />
             <Header />
-            <Timeline playlists={config.playlists}>
-                Conteúdo
-            </Timeline>
+            <Timeline playlists={config.playlists} />
         </div>
         </>
     );
@@ -39,10 +38,12 @@ const StyledHeader = styled.div`
         border-radius: 50%;
     }
     .userInfo {
+        margin-top: 80px;
+        margin-bottom: 20px;
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: center;
+        justify-content: start;
         width: 100%;
         padding: 16px 32px;
         gap: 16px;
@@ -67,7 +68,7 @@ function Header() {
 function Timeline(propriedades) {
     const playListNames = Object.keys(propriedades.playlists)
     return (
-        <div>
+        <StyledTimeline>
             {playListNames.map((playListName) => {
                 const playlists = propriedades.playlists[playListName];
 
@@ -89,6 +90,6 @@ function Timeline(propriedades) {
                     </section>
                 ) 
             })}
-        </div>
+        </StyledTimeline>
     )
-}
+};
