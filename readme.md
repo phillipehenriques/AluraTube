@@ -9,3 +9,5 @@ Projeto em desenvolvimento do Imersão React, desenvolvido pela Alura.
 Você pode ver mais dos meus projeto clicando [Nesse Link](https://github.com/phillipehenriques/) e me apoiar deixando um comentário.
 
 > ###### Visite também meu Instagram clicando [Nesse Link](https://www.instagram.com/ph_aranoia/) e conhecendo um pouco mais sobre minha vida e meu trabalho.
+
+Meu currículo Digital se encontra [Nesse Link](https://github.com/phillipehenriques/Curriculo-Digital), esteja a vontade para olhar meus projetos!
