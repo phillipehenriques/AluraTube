@@ -2,11 +2,11 @@ import config from "../config.json";
 import styled from "styled-components";
 import { CSSReset } from "../src/components/CSSReset";
 import Menu from "../src/components/Menu.js";
-import { StyledTimeline } from "../src/components/Timeline";
+import { StyledTimeline } from "../src/components/StyledTimeline";
 
 function HomePage() {
     const mensagem = "Deu certo?";
-    const estilosDaHomePage = {        backgroundColor: "none", width: "100%"};
+    const estilosDaHomePage = {backgroundColor: "none", width: "100%"};
 
     return (
         <>
@@ -22,15 +22,6 @@ function HomePage() {
 
 export default HomePage;
 
-
-// function Menu() {
-//     return (
-//         <div>
-//             Menu
-//         </div>
-//     )
-// };
-
 const StyledHeader = styled.div`
     img {
         width: 80px;
@@ -38,8 +29,9 @@ const StyledHeader = styled.div`
         border-radius: 50%;
     }
     .userInfo {
-        margin-top: 80px;
+        margin-top: 56px;
         margin-bottom: 20px;
+        color: white;
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -48,17 +40,29 @@ const StyledHeader = styled.div`
         padding: 16px 32px;
         gap: 16px;
     }
+    .modal {
+        margin-top: 56px;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: center;
+        width: 100%;
+        height: 25vh;
+        background-color: black;
+    }
   `;
 function Header() {
     return (
         <StyledHeader>
             {/*<img src=""/>*/}
 
-            <div className="userInfo">
-                <img src={`https://github.com/${config.github}.png`} />
-                <div>
-                    <h2>{config.name}</h2>
-                    <p>{config.job}</p>
+            <div className="modal">
+                <div className="userInfo">
+                    <img src={`https://github.com/${config.github}.png`} />
+                    <div>
+                        <h2>{config.name}</h2>
+                        <p>{config.job}</p>
+                    </div>
                 </div>
             </div>
         </StyledHeader>
@@ -72,16 +76,18 @@ function Timeline(propriedades) {
             {playListNames.map((playListName) => {
                 const playlists = propriedades.playlists[playListName];
 
+                console.log(playlists);
+
                 return (
                     <section>
                         <h2>{playListName}</h2>
                         <div>
-                            {playlists.map(() => {
+                            {playlists.map((x) => {
                                 return (
-                                    <a href={playlists.url}>
-                                        <img src={playlists.thumb} />{/* thumb do video */}
+                                    <a href={x.url}>
+                                        <img src={x.thumb} />{/* thumb do video */}
                                         <span>
-                                            {playlists.title} {/* nome do video */}
+                                            {x.title} {/* nome do video */}
                                         </span>
                                     </a>
                                 )
