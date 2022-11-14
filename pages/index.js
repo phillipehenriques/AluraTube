@@ -1,20 +1,23 @@
+import React  from "react";
 import config from "../config.json";
 import styled from "styled-components";
 import { CSSReset } from "../src/components/CSSReset";
-import Menu from "../src/components/Menu.js";
+import Menu from "../src/components/Menu";
 import { StyledTimeline } from "../src/components/StyledTimeline";
 
 function HomePage() {
     const mensagem = "Deu certo?";
     const estilosDaHomePage = {backgroundColor: "none", width: "100%"};
 
+    const [valorDaBusca, setValorDaBusca] = React.useState();
+
     return (
         <>
         <CSSReset />
         <div style={estilosDaHomePage}>
-            <Menu />
+            <Menu valorDaBusca={valorDaBusca} setValorDaBusca={setValorDaBusca}/>
             <Header />
-            <Timeline playlists={config.playlists} />
+            <Timeline searchValue={valorDaBusca} playlists={config.playlists} />
         </div>
         </>
     );
@@ -69,7 +72,7 @@ function Header() {
     )
 }
 
-function Timeline(propriedades) {
+function Timeline({searchValue, ...propriedades}) {
     const playListNames = Object.keys(propriedades.playlists)
     return (
         <StyledTimeline>
@@ -82,7 +85,9 @@ function Timeline(propriedades) {
                     <section>
                         <h2>{playListName}</h2>
                         <div>
-                            {playlists.map((x) => {
+                            {playlists.filter((x) => {
+                                return x.title.includes(searchValue)
+                            }).map((x) => {
                                 return (
                                     <a href={x.url}>
                                         <img src={x.thumb} />{/* thumb do video */}
@@ -91,7 +96,7 @@ function Timeline(propriedades) {
                                         </span>
                                     </a>
                                 )
-                            })}
+                            })};
                         </div>
                     </section>
                 ) 
