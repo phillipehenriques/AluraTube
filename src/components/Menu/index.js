@@ -25,13 +25,13 @@ const StyledMenu = styled.header`
   }
 `;
 
-export default function Menu({valorDaBusca, setvalorDaBusca}) {
+export default function Menu({valorDaBusca, setValorDaBusca}) {
   return (
     <StyledMenu>
       <div>
         <Logo />       
       </div>
-      <Search valordaBusca={valorDaBusca} setvalordaBusca={setvalorDaBusca} />
+      <Search valorDaBusca={valorDaBusca} setValorDaBusca={setValorDaBusca} />
     </StyledMenu>
   );
 }

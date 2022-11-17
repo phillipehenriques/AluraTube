@@ -9,7 +9,7 @@ function HomePage() {
     const mensagem = "Deu certo?";
     const estilosDaHomePage = {backgroundColor: "none", width: "100%"};
 
-    const [valorDaBusca, setValorDaBusca] = React.useState();
+    const [valorDaBusca, setValorDaBusca] = React.useState("");
 
     return (
         <>
@@ -79,7 +79,7 @@ function Timeline({searchValue, ...propriedades}) {
             {playListNames.map((playListName) => {
                 const playlists = propriedades.playlists[playListName];
 
-                console.log(playlists);
+                
 
                 return (
                     <section>
