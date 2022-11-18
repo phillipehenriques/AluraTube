@@ -70,7 +70,7 @@ function Header() {
             </div>
         </StyledHeader>
     )
-}
+};
 
 function Timeline({searchValue, ...propriedades}) {
     const playListNames = Object.keys(propriedades.playlists)
